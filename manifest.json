@@ -1,0 +1,39 @@
+{
+  "name": "Enovia Frame url parser",
+  "description": "made by soko",
+  "version": "1.0.7",
+  "manifest_version": 2,
+  "browser_action": {
+    "browser_style": true,
+    "default_title": "Enovia Frame url parser",
+    "default_icon":"./parser.png",
+    "default_popup": "./popup.html"
+  },
+  "permissions": [
+    "storage",
+    "tabs",
+    "activeTab",
+    "clipboardRead",
+    "clipboardWrite",
+    "contextMenus"
+  ],
+  "background": {
+    "scripts": [
+      "./jquery-3.6.0.min.js",
+      "background.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.samsong.com/*"
+      ],
+      "js": [
+        "./jquery-3.6.0.min.js",
+        "popup.js"
+      ],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ]
+}
